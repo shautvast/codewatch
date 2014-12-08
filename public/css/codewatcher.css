@@ -1,0 +1,12 @@
+.highlight {
+	background: yellow;
+}
+
+.marker {
+	background: yellow;
+	background-image: url("../img/cloud.svg");
+	color: black;
+	position: absolute !important;
+	left:50%;
+	font-size: 15px;
+}

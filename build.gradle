@@ -1,0 +1,56 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.1.7.RELEASE")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'spring-boot'
+
+repositories{
+	mavenLocal()
+	mavenCentral()
+}
+
+sourceCompatibility = "1.7"
+
+
+
+dependencies{
+		compile("org.springframework.boot:spring-boot-starter-web") {
+	        exclude module: "spring-boot-starter-jetty"
+    	}
+    	compile("org.springframework.boot:spring-boot-starter-websocket")
+    	compile("org.springframework:spring-messaging")
+		compile 'com.google.code.findbugs:findbugs:3.0.0'
+
+		compile 'commons-io:commons-io:1.4'
+		compile 'org.springframework:spring-beans:3.0.5.RELEASE'
+		compile 'org.springframework:spring-context:3.0.5.RELEASE'
+		compile 'javassist:javassist:3.12.1.GA'
+		compile 'ch.qos.logback:logback-core:0.9.29'
+		compile 'org.slf4j:slf4j-api:1.6.1'
+		compile 'ch.qos.logback:logback-classic:0.9.29'
+		compile 'org.xeustechnologies:jtar:1.0.4'
+		compile 'org.codehaus.jackson:jackson-mapper-asl:1.9.10'
+		
+		testCompile 'junit:junit:4.8.2'
+		testCompile 'org.mockito:mockito-core:1.9.5'
+		testCompile 'org.springframework:spring-test:3.0.5.RELEASE'
+		testCompile 'javax.annotation:jsr250-api:1.0'
+}
+eclipse {
+
+  classpath {
+    downloadSources = true
+    downloadJavadoc = false
+  }
+}
+
+springBoot {
+    mainClass = "nl.jssl.watchjava.Main"
+}
